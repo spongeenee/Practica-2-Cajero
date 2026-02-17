@@ -36,32 +36,34 @@ public class CajeroController {
                 usuario = vista.solicitarUsuario("Ingrese su PIN: ");
                 u = cajero.usuarios.buscarUsuario(usuario);
             }
-            
-            int opcion = vista.mostrarMenu();
-            /* Opciones */
-            switch (opcion) {
-                case 1:
-                    double saldo = cajero.verSaldo(usuario);
-                    System.out.println("Su saldo es: $" + saldo);
-                    break;
-                case 2:
-                    double montoRetiro = vista.pedirMonto("Ingrese el monto a retirar: ");
-                    if (cajero.retirarDinero(usuario, montoRetiro)) {
-                        System.out.println("Retiro exitoso. Su nuevo saldo es: $" + cajero.verSaldo(usuario));
-                    } else {
-                        System.out.println("Fondos insuficientes.");
-                    }
-                    break;
-                case 3:
-                    double montoDeposito = vista.pedirMonto("Ingrese el monto a depositar: ");
-                    cajero.depositarDinero(usuario, montoDeposito);
-                    System.out.println("Depósito exitoso. Su nuevo saldo es: $" + cajero.verSaldo(usuario));
-                    break;
-                case 4:
-                    System.out.println("Gracias por usar el Cajero. Adios.");
-                    return;
-                default:
-                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+
+            while (true) {
+                int opcion = vista.mostrarMenu();
+                /* Opciones */
+                switch (opcion) {
+                    case 1:
+                        double saldo = cajero.verSaldo(usuario);
+                        System.out.println("Su saldo es: $" + saldo);
+                        break;
+                    case 2:
+                        double montoRetiro = vista.pedirMonto("Ingrese el monto a retirar: ");
+                        if (cajero.retirarDinero(usuario, montoRetiro)) {
+                            System.out.println("Retiro exitoso. Su nuevo saldo es: $" + cajero.verSaldo(usuario));
+                        } else {
+                            System.out.println("Fondos insuficientes.");
+                        }
+                        break;
+                    case 3:
+                        double montoDeposito = vista.pedirMonto("Ingrese el monto a depositar: ");
+                        cajero.depositarDinero(usuario, montoDeposito);
+                        System.out.println("Depósito exitoso. Su nuevo saldo es: $" + cajero.verSaldo(usuario));
+                        break;
+                    case 4:
+                        System.out.println("Gracias por usar el Cajero. Adios.");
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                }
             }
         }
     }
