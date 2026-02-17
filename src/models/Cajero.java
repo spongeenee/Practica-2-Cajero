@@ -12,7 +12,6 @@ public class Cajero {
             usuarios = new ListaUsuarios();
         }
         usuarios.agregarUsuario(usuario);
-        }
     }
 
     public double verSaldo(String usuario) {

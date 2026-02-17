@@ -1,19 +1,19 @@
 package models;
 
 public class ListaUsuarios {
-    public Usuario actual;
+    public Usuario inicio;
     public Usuario siguiente;
 
     public ListaUsuarios() {
-        this.actual = null;
+        this.inicio = null;
         this.siguiente = null;
     }
 
     public void agregarUsuario(Usuario usuario) {
-        if (actual == null) {
-            actual = usuario;
+        if (inicio == null) {
+            inicio = usuario;
         } else {
-            Usuario temp = actual;
+            Usuario temp = inicio;
             while (temp.siguiente != null) {
                 temp = temp.siguiente;
             }
@@ -22,7 +22,7 @@ public class ListaUsuarios {
     }
 
     public Usuario buscarUsuario(String usuario) {
-        Usuario temp = actual;
+        Usuario temp = inicio;
         while (temp != null) {
             if (temp.getUsuario().equals(usuario)) {
                 return temp;
