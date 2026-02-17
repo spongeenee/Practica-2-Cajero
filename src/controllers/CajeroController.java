@@ -45,7 +45,6 @@ public class CajeroController {
                     System.out.println("Su saldo es: $" + saldo);
                     break;
                 case 2:
-                    System.out.print("Ingrese el monto a retirar: ");
                     double montoRetiro = vista.pedirMonto("Ingrese el monto a retirar: ");
                     if (cajero.retirarDinero(usuario, montoRetiro)) {
                         System.out.println("Retiro exitoso. Su nuevo saldo es: $" + cajero.verSaldo(usuario));
