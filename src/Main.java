@@ -1,5 +1,4 @@
 import controllers.CajeroController;
-import models.Usuario;
 import views.VistaCajero;
 
 public class Main {
